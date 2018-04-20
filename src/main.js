@@ -20,15 +20,18 @@ new Vue({
             return
         }
         this.canWheel = false
+
         if(e.deltaY > 0){
           if(this.curindex === this.bgColor.length-1){
+              this.canWheel = true
                return
           }
-          this.name = "down"
+           this.name = "down"
            this.curindex++;
         }else{
           if(this.curindex === 0){
-            return
+              this.canWheel = true
+              return
           }
           this.name = "up"
           this.curindex--;
