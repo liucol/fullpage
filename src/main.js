@@ -12,7 +12,8 @@ new Vue({
     bgColor: ["#c09","#90c","#09c","#9c0"],
     curindex: 0,
     name: "down",
-    canWheel: true
+    canWheel: true,
+    endcount: 0
   },
   methods:{
     wheelEvent(e){
@@ -24,6 +25,7 @@ new Vue({
         if(e.deltaY > 0){
           if(this.curindex === this.bgColor.length-1){
               this.canWheel = true
+              this.endcount = 0
                return
           }
            this.name = "down"
@@ -31,6 +33,7 @@ new Vue({
         }else{
           if(this.curindex === 0){
               this.canWheel = true
+              this.endcount = 0
               return
           }
           this.name = "up"
@@ -38,7 +41,12 @@ new Vue({
         }
     },
     end(){
-      this.canWheel = true
+      this.endcount++
+      if(this.endcount == 2){
+        this.canWheel = true
+        this.endcount = 0
+      }
+      
     }
   }
   // components: { App },
