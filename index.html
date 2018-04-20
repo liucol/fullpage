@@ -60,6 +60,7 @@
          :style="{'background-color': list}"
          v-show="index === curindex"
          @wheel = "wheelEvent($event)"
+         @transitionend = "end"
          >{{list}}</div>
       </transition-group>
     </div>
