@@ -34,11 +34,26 @@
         .down-leave{
           transform: translateY(0);
         }
+        
+        .up-enter-active{
+          transition: all 1s ease;
+          transform: translateY(0);
+        }
+        .up-leave-active{
+          transition: all 1s ease;
+          transform: translateY(100%);
+        }
+        .up-enter{
+          transform: translateY(-100%);
+        }
+        .up-leave{
+          transform: translateY(0);
+        }
     </style>
   </head>
   <body>
     <div id="app">
-      <transition-group tag="div" name="down">
+      <transition-group tag="div" :name="name" >
          <div class="block" 
          v-for="(list,index) in bgColor" 
          :key="list" 
